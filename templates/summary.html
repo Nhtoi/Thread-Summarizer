@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Summary Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #FF4500; /* Reddit orange */
+        }
+        .summary-box {
+            background-color: #f9f9f9;
+            border-left: 5px solid #FF4500;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #0066CC;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+          /* Dark mode overrides */
+    body.dark-mode {
+        background-color: #1a1a1a;
+        color: #f0f0f0;
+    }
+    body.dark-mode .error-box {
+        background-color: #3a1a1a;
+        border-left-color: #F44336;
+    }
+    body.dark-mode .summary-box {
+        background-color: #2a2a2a;
+        border-left-color: #FF4500;
+    }
+    body.dark-mode .back-link {
+        color: #66B2FF;
+    }
+    </style>
+</head>
+<body>
+    <h1>Summary Result</h1>
+    
+    <div class="summary-box">
+        <h3>Generated Summary:</h3>
+        <p>{{ summary }}</p>
+    </div>
+    
+    <a href="/" class="back-link">← Back to home</a>
+</body>
+<script>
+    function applyColorScheme(scheme) {
+        document.body.classList.toggle('dark-mode', scheme === 'dark');
+    }
+
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    applyColorScheme(mediaQuery.matches ? 'dark' : 'light');
+
+    mediaQuery.addEventListener('change', e => {
+        applyColorScheme(e.matches ? 'dark' : 'light');
+    });
+</script>
+
+</html>

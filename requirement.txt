@@ -1,0 +1,10 @@
+praw
+python-dotenv
+numpy
+pandas
+torch
+matplotlib
+datasets
+scikit-learn
+transformers
+tqdm

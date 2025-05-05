@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reddit Thread Summarizer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #FF4500; /* Reddit orange */
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #FF4500;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #E03D00;
+        }
+        body.dark-mode {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}
+body.dark-mode input[type="text"] {
+    background-color: #333;
+    color: #f0f0f0;
+    border-color: #555;
+}
+body.dark-mode button {
+    background-color: #FF4500;
+}
+body.dark-mode button:hover {
+    background-color: #E03D00;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Reddit Thread Summarizer</h1>
+    <p>Enter a Reddit thread URL to generate a summary of the comments.</p>
+    
+    <form method="POST">
+        <div class="form-group">
+            <label for="link-input">Reddit Thread URL:</label>
+            <input type="text" id="link-input" name="Link" placeholder="https://www.reddit.com/r/..." required>
+        </div>
+        <button type="submit">Generate Summary</button>
+    </form>
+</body>
+    <script>
+        
+//https://stackoverflow.com/a/57795495        
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    // dark mode
+}
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+    const newColorScheme = event.matches ? "dark" : "light";
+});
+
+function applyColorScheme(scheme) {
+    document.body.classList.toggle('dark-mode', scheme === 'dark');
+}
+
+const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+applyColorScheme(mediaQuery.matches ? 'dark' : 'light');
+
+mediaQuery.addEventListener('change', e => {
+    applyColorScheme(e.matches ? 'dark' : 'light');
+});
+    </script>
+</html>

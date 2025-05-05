@@ -1,0 +1,9 @@
+.env
+/__pycache__/
+/checkpoints/
+/Processed_Data/
+/Raw_data/
+/reddit_env/
+bartresult.txt
+t5smallresult.txt
+Course Project Final Report (1).docs

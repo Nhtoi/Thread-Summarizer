@@ -1,0 +1,103 @@
+# Reddit Thread Summarizer
+
+This application uses Flask to provide a web interface for summarizing Reddit threads. It leverages a fine-tuned text summarization model (T5 by default) to generate concise summaries of thread comments.
+
+## How It Works
+
+1. The application connects `app.py` (web interface) with `test.py` (summarization engine).
+2. When a user submits a Reddit thread URL through the web interface, the app:
+   - Extracts comments from the thread
+   - Processes and cleans the text
+   - Generates a summary using the pre-trained or fine-tuned model
+   - Displays the summary to the user
+
+## Setup Instructions
+
+### Method 1: Use the installer script (Recommended)
+
+1. Run the installer script to install all required dependencies:
+   ```
+   python install_dependencies.py
+   ```
+
+2. Run the web application:
+   ```
+   python app.py
+   ```
+
+### Method 2: Manual installation
+
+1. Install the required dependencies manually:
+   ```
+   pip install flask praw python-dotenv pandas torch transformers datasets tqdm matplotlib scikit-learn sentencepiece
+   ```
+
+2. Run the web application:
+   ```
+   python app.py
+   ```
+
+### Method 3: Use the fallback version
+
+If you're having issues with the dependencies for the ML model:
+
+1. Install minimal dependencies:
+   ```
+   pip install flask praw
+   ```
+
+2. Run the fallback version (doesn't use ML models):
+   ```
+   python app_fallback.py
+   ```
+
+## Directory Structure
+
+Ensure the file structure is correct:
+```
+├── app.py                  # Main application
+├── app_fallback.py         # Simpler version that doesn't require ML
+├── test.py                 # ML model and text processing functions
+├── install_dependencies.py # Script to install required packages
+├── templates/
+│   ├── home.html           # Main page with input form
+│   ├── summary.html        # Results page
+│   └── error.html          # Error page
+├── checkpoints/            # Model checkpoints (created automatically)
+├── Processed_Data/         # Processed text data (created automatically)
+└── Raw_Data/               # Raw data (created automatically)
+```
+
+## How to Use
+
+1. Enter a valid Reddit thread URL in the input field
+2. Click "Generate Summary"
+3. View the generated summary on the results page
+
+## Troubleshooting
+
+If you encounter any issues:
+
+1. **Missing libraries**: Run `python install_dependencies.py` to install all required dependencies
+2. **Model loading errors**: Try using the fallback version with `python app_fallback.py`
+3. **Reddit API errors**: Make sure the Reddit API credentials in `test.py` are valid
+4. **ImportError with SentencePiece**: This is a common issue. Run `pip install sentencepiece` to fix it
+5. **Other issues**: Check the console output for specific error messages
+
+## Error: SentencePiece Library Not Found
+
+If you see an error about SentencePiece not being found:
+
+```
+ImportError: T5Tokenizer requires the SentencePiece library but it was not found in your environment.
+```
+
+Run this command to install it:
+
+```
+pip install sentencepiece
+```
+
+## Note on Model Choice
+
+The app uses T5-small by default, which requires the SentencePiece library. If you're having issues with this model, you can modify the code to use a different model like BART that doesn't have this dependency.
