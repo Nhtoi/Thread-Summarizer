@@ -4,111 +4,16 @@
   <img src="https://img.shields.io/badge/PyTorch-red?logo=pytorch&logoColor=white" alt="PyTorch">
   <img src="https://img.shields.io/badge/Flask-black?logo=flask&logoColor=white" alt="Flask">
 </p>
-
-
 Reddit Thread Summarizer
 This application uses Flask to provide a web interface for summarizing Reddit threads. It leverages a fine-tuned text summarization model (T5 by default) to generate concise summaries of thread comments.
-
 🚀 How It Works
 The application connects app.py (web interface) with test.py (summarization engine).
 
 When a user submits a Reddit thread URL:
-
 Comments are extracted
-
 Text is cleaned and processed
-
 A summary is generated using a fine-tuned model
-
 The summary is displayed on the results page
 
-⚙️ Setup Instructions
-✅ Method 1: Use the Installer Script (Recommended)
-bash
-Copy
-Edit
-python install_dependencies.py
-python app.py
-⚠️ Method 2: Manual Installation
-bash
-Copy
-Edit
-pip install flask praw python-dotenv pandas torch transformers datasets tqdm matplotlib scikit-learn sentencepiece
-python app.py
-🧩 Method 3: Use the Fallback Version (No ML Model)
-bash
-Copy
-Edit
-pip install flask praw
-python app_fallback.py
-📁 Directory Structure
-bash
-Copy
-Edit
-├── app.py                  # Main application
-├── app_fallback.py         # Simpler version (no ML)
-├── test.py                 # ML summarization and preprocessing
-├── install_dependencies.py # Installer script
-├── templates/
-│   ├── home.html           # Input form
-│   ├── summary.html        # Summary results
-│   └── error.html          # Error display
-├── checkpoints/            # Model checkpoints (auto-created)
-├── Processed_Data/         # Cleaned data (auto-created)
-└── Raw_Data/               # Raw comments (auto-created)
-🧪 How to Use
-Enter a valid Reddit thread URL in the input form
+Much More Detailed Explanation: https://docs.google.com/document/d/1Jv6_a2ziVCMMDE7UnZNm-4ushzFUhwiK/edit?usp=sharing&ouid=101291386082869297856&rtpof=true&sd=true
 
-Click Generate Summary
-
-View the summary on the next page
-
-🛠 Troubleshooting
-Missing Libraries
-Run:
-
-bash
-Copy
-Edit
-python install_dependencies.py
-Model Loading Issues
-Use fallback:
-
-bash
-Copy
-Edit
-python app_fallback.py
-Reddit API Errors
-Ensure valid credentials in test.py
-
-SentencePiece Errors
-Install with:
-
-bash
-Copy
-Edit
-pip install sentencepiece
-Other Errors
-Check console output for details
-
-🧩 SentencePiece Error Example
-You might see:
-
-cpp
-Copy
-Edit
-ImportError: T5Tokenizer requires the SentencePiece library but it was not found in your environment.
-Fix it by running:
-
-bash
-Copy
-Edit
-pip install sentencepiece
-🧠 Model Notes
-Default model: T5-small
-
-T5 requires SentencePiece
-
-To avoid SentencePiece, switch to BART in test.py
-
-Let me know if you'd like this exported as a file.
