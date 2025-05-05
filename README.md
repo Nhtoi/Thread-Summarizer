@@ -1,8 +1,10 @@
-
 <p align="center"> 
-<img src="https://img.shields.io/badge/Status-Dev-yellow"> 
-<img src="https://img.shields.io/badge/Stack-Python%20%7C%20Pytorch%20%7C%20Flask"> 
+  <img src="https://img.shields.io/badge/Status-Finished-green" alt="Project Status">
+  <img src="https://img.shields.io/badge/Python-blue?logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/PyTorch-red?logo=pytorch&logoColor=white" alt="PyTorch">
+  <img src="https://img.shields.io/badge/Flask-black?logo=flask&logoColor=white" alt="Flask">
 </p>
+
 
 Reddit Thread Summarizer
 This application uses Flask to provide a web interface for summarizing Reddit threads. It leverages a fine-tuned text summarization model (T5 by default) to generate concise summaries of thread comments.
